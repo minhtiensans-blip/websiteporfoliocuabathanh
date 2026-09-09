@@ -1,69 +1,75 @@
-* {
+*{
     box-sizing: border-box;
 }
-
-body {
+body{
     background-color: white;
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
 }
 
-/* Base Profile Layout */
+/* Base Responsive Profile Container */
 #profile {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     min-height: 250px;
     height: auto;
-    padding: 20px 5%;
+    padding: 30px 5%;
     background-color: rgb(10, 34, 52);
     gap: 20px;
     animation: slideleft 1s;
 }
 
 #avatar {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: solid 5px rgb(0, 190, 170);
-    flex-shrink: 0;
     position: static;
     transform: none;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: solid 5px rgb(0, 190, 170);
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
 }
 
 #name {
     position: static;
     transform: none;
     color: white;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.8rem;
+    font-family: "roboto";
+    font-size: xx-large;
     font-weight: 900;
     display: block;
-    margin-bottom: 5px;
+    width: 100%;
 }
 
 #jobs {
     position: static;
     transform: none;
-    font-size: 1.1rem;
-    font-family: "Roboto", sans-serif;
+    font-size: larger;
+    font-family: "roboto";
     color: rgb(0, 190, 170);
     font-weight: 800;
     display: block;
-    margin-bottom: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Ép #name và #jobs gom chung thành 1 cột nằm giữa avatar và social */
+#profile > label#name, 
+#profile > label#jobs {
+    flex: 1 1 300px;
 }
 
 #social {
     position: static;
     transform: none;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     color: rgba(255, 255, 255, 0.705);
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     flex-shrink: 0;
 }
@@ -71,7 +77,6 @@ body {
 a {
     cursor: pointer;
     color: aqua;
-    text-decoration: none;
 }
 
 #Email {
@@ -80,12 +85,12 @@ a {
     text-decoration: underline aqua;
 }
 
-/* Các thành phần nội dung bên dưới */
+/* Layout các phần dưới */
 .title-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
+    text-align: center;
     gap: 15px; 
     margin-left: 5%;
     margin-top: 2%;
@@ -101,14 +106,14 @@ a {
 
 .title {
     font-size: x-large;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     font-weight: bold;
 }
 
 .sa {
     text-align: center;
     line-height: 1;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     font-size: 4rem;
     color: rgb(0, 190, 170);
 }
@@ -126,7 +131,7 @@ a {
 
 .skill {
     font-size: x-large;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     color: black;
 }
 
@@ -166,7 +171,7 @@ a {
     white-space: normal;
     color: rgba(88, 88, 88, 0.856);
     font-size: small;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     padding-left: 40px; 
     margin-top: 5px;
 }
@@ -178,7 +183,7 @@ a {
 
 .greensquare {
     margin-left: -5px;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     display: flex;
     align-items: center;
     justify-content: center;
@@ -192,71 +197,65 @@ a {
     border-radius: 5px;
 }
 
-/* Grid layout tối ưu */
-#thanhtuuitems {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 3%;
-    width: 90%;
-    margin-left: 5%;
-}
-
 .item {
     border-radius: 25px;
-    min-height: 85px;
-    width: 100%;
+    height: 85px;
+    width: 350px;
     position: relative;
     background-color: rgba(245, 247, 248, 1);
     border: solid 1px rgba(230, 235, 238, 1);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .itemtitle {
-    text-align: left;
-    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-family: "roboto";
     font-size: larger;
-    position: static;
-    transform: none;
-    padding-left: 60px;
+    position: absolute;
+    top: 25%;
+    transform: translateY(-25%);
+    padding-left: 15%;
 }
 
 .child {
     font-weight: 750;
     color: rgb(0, 190, 170);
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     font-size: medium;
-    position: static;
-    margin-top: 5px;
-    padding-left: 60px;
+    position: absolute;
+    margin-top: 7%;
+    padding-left: 15%;
+}
+
+#thanhtuuitems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 25px;
+    margin-top: 3%;
+    max-width: 90%;
+    margin-left: 5%;
 }
 
 .sa1 {
-    padding-left: 15px;
+    padding-left: 3%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-58%);
     text-align: center;
     line-height: 1;
-    font-family: "Roboto", sans-serif;
-    font-size: 3.5rem;
+    font-family: "roboto";
+    font-size: 5rem;
     color: rgb(0, 190, 170);
 }
 
 .item2 {
     display: flex;
     justify-content: center;
-    align-items: center;
     border-radius: 25px;
-    min-height: 85px;
-    width: 100%;
+    height: 85px;
+    width: 350px;
     position: relative;
     background-color: rgb(252, 252, 252);
     border: solid 1px rgba(230, 235, 238, 1);
-    padding: 15px;
 }
 
 .box3 {
@@ -268,60 +267,67 @@ a {
     font-size: 14px;            
     font-family: "Roboto", sans-serif;
     border-radius: 12px;        
-    padding: 6px 12px;          
+    padding: 4px 12px;          
     line-height: 1;         
-    margin-top: 30px;
+    margin-top: 12%;
+    margin-left: 5%;
 }
 
-.itemtitle2, .itemtitle3 {
-    white-space: normal;
+.itemtitle2 {
+    white-space: nowrap;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     font-size: medium;
-    position: static;
-    transform: none;
+    position: absolute;
+    top: 5%;
+    transform: translateY(-5%) translateX(-50%);
+    left: 50%;
 }
 
 #Chuyenmonitems {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 15px;
+    max-width: 90%;
     margin-left: 5%;
 }
 
 .Chuyenmonitems1 {
     color: rgba(88, 88, 88, 0.856);
     font-size: 15px;
-    font-family: "Roboto", sans-serif;
+    font-family: "roboto";
     white-space: normal;
-    padding-top: 10px;
+    padding-top: 40px;
+}
+
+.itemtitle3 {
+    text-align: center;
+    font-family: "roboto";
+    font-size: medium;
+    position: absolute;
+    top: 5%;
+    transform: translateY(-5%) translateX(-50%);
+    left: 50%;
 }
 
 hr {
     border: none;
-    border-top: 2px solid rgba(88, 88, 88, 0.178);
-    margin: 20px 0;
+    border-top: 2px solid rgba(88, 88, 88, 0.178); 
 }
 
 #github {
     cursor: pointer;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "roboto";
     font-size: medium;
     color: rgba(88, 88, 88, 0.856);
-    margin: 20px auto;
-    display: block;
 }
 
 @keyframes slideleft {
     from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateX(-100px);
     }
 }
 
@@ -330,56 +336,28 @@ hr {
 }
 
 #notprofile.play {
-    transition: 300ms ease;
+    transition: 100ms ease;
     opacity: 1;
     animation: slideleft 1s;
 }
 
-/* BREAKPOINTS RESPONSIVE */
-
-/* Tablet & Mobile cỡ lớn (Dưới 992px) */
+/* MEDIA QUERIES MOBILE & TABLET */
 @media (max-width: 992px) {
     #profile {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 30px 5%;
+        justify-content: center;
+        text-align: center;
     }
-
     #social {
         width: 100%;
-        margin-top: 10px;
-        padding-top: 15px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 15px;
     }
 }
 
-/* Mobile (Dưới 600px) */
 @media (max-width: 600px) {
     #profile {
         flex-direction: column;
-        text-align: center;
-        align-items: center;
     }
-
-    #name {
-        font-size: 1.5rem;
-    }
-
-    #jobs {
-        font-size: 1rem;
-    }
-
-    #social {
-        text-align: center;
-    }
-
-    .title-container, .hanhtrinhlamviec {
-        margin-left: 3%;
-        margin-right: 3%;
-    }
-
-    #thanhtuuitems, #Chuyenmonitems {
-        width: 94%;
-        margin-left: 3%;
+    .item, .item2 {
+        width: 100%;
     }
 }
